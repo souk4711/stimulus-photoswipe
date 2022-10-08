@@ -1,0 +1,74 @@
+{
+  "name": "stimulus-photoswipe",
+  "version": "0.1.0",
+  "description": "A Stimulus controller for PhotoSwipe.",
+  "keywords": [
+    "typescript",
+    "stimulus",
+    "stimulus-component",
+    "photoswipe"
+  ],
+  "author": "John Doe <johndoe@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souk4711/stimulus-photoswipe"
+  },
+  "bugs": {
+    "url": "https://github.com/souk4711/stimulus-photoswipe/issues"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.umd.js",
+    "dist/types/**/*"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint --fix .",
+    "lint:check": "eslint .",
+    "build": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types && rollup -c",
+    "dev": "rollup -wc",
+    "test": "yarn build && karma start",
+    "test:watch": "yarn test --auto-watch --no-single-run",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "photoswipe": ">= 5"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": ">= 3"
+  },
+  "devDependencies": {
+    "@hotwired/stimulus": ">= 3",
+    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "chai": "^4.3.6",
+    "eslint": "^8.24.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "husky": "^8.0.1",
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-fixture": "^0.2.6",
+    "karma-mocha": "^2.0.1",
+    "karma-webpack": "^5.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
+    "puppeteer": "^18.0.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0"
+  }
+}

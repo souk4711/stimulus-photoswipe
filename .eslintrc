@@ -1,0 +1,13 @@
+{
+  "env": { "browser": true, "mocha": true },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": ["standard", "standard-with-typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "rules": {
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off"
+  }
+}
