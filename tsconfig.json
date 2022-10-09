@@ -11,7 +11,11 @@
     "outDir": "dist",
     "baseUrl": ".",
     "noEmit": false,
-    "declaration": false
+    "declaration": false,
+    "skipLibCheck": true,
+    "paths": {
+      "photoswipe/lightbox": ["./node_modules/photoswipe"]
+    }
   },
   "include": ["src/**/*.ts"]
 }

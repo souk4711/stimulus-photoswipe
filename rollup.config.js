@@ -1,12 +1,13 @@
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
+import scss from 'rollup-plugin-scss'
 
 import { version } from './package.json'
 const banner = `/*\nStimulusPhotoSwipe ${version}\n*/`
 
 export default [
   {
-    external: ['@hotwired/stimulus', 'photoswipe'],
+    external: ['@hotwired/stimulus', 'photoswipe', 'photoswipe/lightbox'],
     input: 'src/index.ts',
     output: [
       {
@@ -16,7 +17,8 @@ export default [
         banner,
         globals: {
           '@hotwired/stimulus': 'Stimulus',
-          photoswipe: 'PhotoSwipe'
+          photoswipe: 'PhotoSwipe',
+          'photoswipe/lightbox': 'PhotoSwipeLightbox'
         }
       },
       {
@@ -29,5 +31,9 @@ export default [
     watch: {
       include: 'src/**'
     }
+  },
+  {
+    input: 'photoswipe/style.css',
+    plugins: [resolve(), scss({ output: 'dist/style.css' })]
   }
 ]

@@ -10,7 +10,7 @@ module.exports = function (config) {
     frameworks: ['webpack', 'mocha', 'fixture'],
 
     // list of files / patterns to load in the browser
-    files: ['spec/**/*.js'],
+    files: ['spec/**/*.js', 'dist/style.css'],
 
     // list of files / patterns to exclude
     exclude: [],
