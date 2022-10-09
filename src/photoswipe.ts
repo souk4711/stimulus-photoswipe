@@ -32,7 +32,8 @@ export class PhotoSwipeController extends Controller {
     // https://photoswipe.com/options/
     const pswpOptions = this.pswpOptions() as Partial<ExtendedPhotoSwipeOptions>
     const lightbox = new PhotoSwipeLightbox({
-      gallery: `#${this.element.id}`,
+      // @ts-expect-error Allow use Element for the gallery element.
+      gallery: this.element,
       children: 'a',
       pswpModule: PhotoSwipe,
       ...this.pswpOptionsValue,

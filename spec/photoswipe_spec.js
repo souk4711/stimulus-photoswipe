@@ -64,7 +64,7 @@ describe('PhotoSwipeController', () => {
         'lightbox'
       )
       const options = controller.lightbox.options
-      expect(options.gallery).to.equal('#gallery--eins')
+      expect(options.gallery.id).to.equal('gallery--eins')
       expect(options.children).to.equal('a')
       expect(options.showHideAnimationType).to.equal(undefined)
 
@@ -101,7 +101,7 @@ describe('PhotoSwipeController', () => {
         'lightbox'
       )
       const options = controller.lightbox.options
-      expect(options.gallery).to.equal('#gallery--zwei')
+      expect(options.gallery.id).to.equal('gallery--zwei')
       expect(options.children).to.equal('.lightbox-item')
       expect(options.showHideAnimationType).to.equal('zoom')
 
@@ -137,7 +137,7 @@ describe('PhotoSwipeController', () => {
         'custom-lightbox'
       )
       const options = controller.lightbox.options
-      expect(options.gallery).to.equal('#gallery--drei')
+      expect(options.gallery.id).to.equal('gallery--drei')
       expect(options.children).to.equal('a')
       expect(options.showHideAnimationType).to.equal('fade')
 
