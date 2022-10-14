@@ -130,7 +130,7 @@ describe('PhotoSwipeController', () => {
       await aTimeout(1000)
     })
 
-    it('inits with #pswpOptionsValue', async () => {
+    it('inits with #pswpOptions', async () => {
       const controller = findController(
         application,
         '#gallery--drei',
