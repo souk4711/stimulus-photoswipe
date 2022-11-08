@@ -81,13 +81,16 @@ And add this in your CSS file:
 ### Extending Controller
 
 ```javascript
-import { PhotoSwipeController } from 'stimulus-photoswipe'
+import { Controller } from '@hotwired/stimulus'
+import { usePhotoSwipe } from 'stimulus-photoswipe'
 
-class CustomPhotoSwipeController extends PhotoSwipeController {
-  pswpOptions() {
-    return {
+class CustomPhotoSwipeController extends Controller {
+  connect() {
+    this.lightbox = usePhotoSwipe(this, {
       // https://photoswipe.com/options/
-      showHideAnimationType: 'fade',
+      photoswipe: {
+        showHideAnimationType: 'fade'
+      },
 
       // https://photoswipe.com/events/
       handlers: {
@@ -98,7 +101,7 @@ class CustomPhotoSwipeController extends PhotoSwipeController {
       filters: {
         numItems: [this.numItemsFilter]
       }
-    }
+    }).lightbox
   }
 
   beforeOpenHandler() {

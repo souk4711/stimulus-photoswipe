@@ -1,21 +1,23 @@
 /* global fixture */
 
-import { Application } from '@hotwired/stimulus'
+import { Application, Controller } from '@hotwired/stimulus'
 import { expect } from 'chai'
-import { PhotoSwipeController } from '../dist'
+import { usePhotoSwipe, PhotoSwipeController } from '../dist'
 import { findController, aTimeout, click } from './helpers'
 
-class CustomPhotoSwipeController extends PhotoSwipeController {
-  pswpOptions() {
-    return {
-      showHideAnimationType: 'fade',
+class CustomPhotoSwipeController extends Controller {
+  connect() {
+    this.lightbox = usePhotoSwipe(this, {
+      photoswipe: {
+        showHideAnimationType: 'fade'
+      },
       handlers: {
         beforeOpen: [this.beforeOpenHandler]
       },
       filters: {
         numItems: [this.numItemsFilter]
       }
-    }
+    }).lightbox
   }
 
   beforeOpenHandler() {
