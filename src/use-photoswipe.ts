@@ -15,25 +15,24 @@ export type Filters = {
 }
 
 export interface Options {
-  element?: Element
+  element?: HTMLElement
   photoswipe?: Partial<PhotoSwipeOptions>
   handlers?: Handlers
   filters?: Filters
 }
 
 export class UsePhotoSwipe {
-  lightbox?: PhotoSwipe
+  lightbox?: PhotoSwipeLightbox
 
   constructor(controller: Controller, options: Options) {
     let element = options.element
     if (element === undefined) {
-      element = controller.element
+      element = controller.element as HTMLElement
     }
 
     // https://photoswipe.com/options/
     const pswpOptions = options.photoswipe
     const lightbox = new PhotoSwipeLightbox({
-      // @ts-expect-error Allow use Element for the gallery element.
       gallery: element,
       children: 'a',
       pswpModule: PhotoSwipe,

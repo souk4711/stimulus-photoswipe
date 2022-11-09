@@ -14,8 +14,16 @@ export class PhotoSwipeController extends Controller {
 
   connect(): void {
     this.lightbox = usePhotoSwipe(this, {
-      element: this.element,
+      element: this.element as HTMLElement,
       photoswipe: this.pswpOptionsValue
     }).lightbox
+  }
+
+  loadAndOpen(e: Event): void {
+    const currentTarget = e.currentTarget as HTMLElement
+    const slideIndex = currentTarget.dataset.pswpSlideIndex ?? '0'
+    this.lightbox?.loadAndOpen(parseInt(slideIndex), {
+      gallery: this.element as HTMLElement
+    })
   }
 }

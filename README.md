@@ -78,6 +78,28 @@ And add this in your CSS file:
 </div>
 ```
 
+### Use `data-action="click->[identifier]#loadAndOpen"`
+
+```html
+<div
+  data-controller="lightbox"
+  data-lightbox-pswp-options-value='{"children":".lightbox-item"}'
+>
+  <a
+    class="lightbox-item hidden"
+    href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-2500.jpg"
+    data-pswp-width="1875"
+    data-pswp-height="2500"
+  ></a>
+  <a
+    class="btn"
+    data-action="click->lightbox#loadAndOpen"
+    data-pswp-slide-index="0"
+    >loadAndOpen</a
+  >
+</div>
+```
+
 ### Extending Controller
 
 ```javascript

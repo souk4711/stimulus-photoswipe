@@ -116,7 +116,46 @@ describe('PhotoSwipeController', () => {
     })
   })
 
-  describe('#pswpOptions', () => {
+  describe('#loadAndOpen', () => {
+    beforeEach(async () => {
+      fixture.set(`
+<div data-controller="lightbox" data-lightbox-pswp-options-value='{"children":".lightbox-item"}' id="gallery--vier">
+  <a class="lightbox-item hidden" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/4/img-2500.jpg"
+    data-pswp-width="1875"
+    data-pswp-height="2500"
+  ></a>
+  <a class="lightbox-item hidden" href="https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-2500.jpg"
+    data-pswp-width="1875"
+    data-pswp-height="2500"
+  ></a>
+  <div class="btn"
+    data-action="click->lightbox#loadAndOpen"
+    data-pswp-slide-index="1"
+  >loadAndOpen</div>
+</div>
+        `)
+      await aTimeout(1000)
+    })
+
+    it('loadAndOpen with slideIndex', async () => {
+      const controller = findController(
+        application,
+        '#gallery--vier',
+        'lightbox'
+      )
+      const options = controller.lightbox.options
+      expect(options.gallery.id).to.equal('gallery--vier')
+
+      click('#gallery--vier .btn')
+      await aTimeout(1000)
+      const data = controller.lightbox.pswp.currSlide.data
+      expect(data.src).to.equal(
+        'https://cdn.photoswipe.com/photoswipe-demo-images/photos/5/img-2500.jpg'
+      )
+    })
+  })
+
+  describe('usePhotoSwipe', () => {
     beforeEach(async () => {
       fixture.set(`
 <div data-controller="custom-lightbox" id="gallery--drei">
@@ -132,7 +171,7 @@ describe('PhotoSwipeController', () => {
       await aTimeout(1000)
     })
 
-    it('inits with #pswpOptions', async () => {
+    it('inits with usePhotoSwipe', async () => {
       const controller = findController(
         application,
         '#gallery--drei',

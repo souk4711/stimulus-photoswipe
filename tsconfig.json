@@ -14,7 +14,9 @@
     "declaration": false,
     "skipLibCheck": true,
     "paths": {
-      "photoswipe/lightbox": ["./node_modules/photoswipe"]
+      "photoswipe/lightbox": [
+        "./node_modules/photoswipe/dist/types/lightbox/lightbox.d.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts"]
