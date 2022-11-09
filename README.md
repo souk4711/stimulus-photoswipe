@@ -38,7 +38,7 @@ And add this in your CSS file:
 @import 'stimulus-photoswipe/dist/style.css';
 ```
 
-### Use with default options
+### Initialize with default options
 
 ```html
 <div data-controller="lightbox">
@@ -55,7 +55,7 @@ And add this in your CSS file:
 </div>
 ```
 
-### Use with `data-[identifier]-pswp-options-value`
+### Initialize with `data-[identifier]-pswp-options-value`
 
 ```html
 <div
